@@ -12,6 +12,7 @@
         >
           {{ formatDate(post.createdAt) }}
         </h5>
+        <small>{{ post.tags }}</small>
         <h1 class="">{{ post.title }}</h1>
         <p class="mt-1 mb-4 text-primary-600 dark:text-primary-400">{{ post.description }}</p>
         <nuxt-content :document="post" />
@@ -25,7 +26,7 @@ export default {
   async asyncData({ $content, params, error }) {
     let post
     try {
-      post = await $content('docs', params.blog).fetch()
+      post = await $content('docs', params.docs).fetch()
     } catch (e) {
       error({ message: 'Doc not found' })
     }

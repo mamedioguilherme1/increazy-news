@@ -9,11 +9,11 @@
 
       <div class="inc-header__menu-ul-back" @click="toggleMenu()"></div>
       <ul class="inc-header__menu-ul">
-        <li class="flex inc-header__menu-li">
-          <nuxt-link class="btn block" to="/blog">Blog</nuxt-link>
+        <li class="flex inc-header__menu-li" @click="toggleMenu()">
+          <nuxt-link class="btn block" to="/docs">Documentação</nuxt-link>
         </li>
-        <li class="lex inc-header__menu-li">
-          <nuxt-link class="btn block" to="/projects">Projects</nuxt-link>
+        <li class="flex inc-header__menu-li" @click="toggleMenu()">
+          <nuxt-link class="btn block" to="/blog">Blog</nuxt-link>
         </li>
       </ul>
     </div>
@@ -123,6 +123,7 @@ export default {
   background: unset !important;
   border: 0;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .inc-header__menu-li .btn:hover {
   transition: all 0.3s;

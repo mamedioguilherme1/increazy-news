@@ -95,6 +95,8 @@ collections:
           default: 'selecione a tag',
           options: [
             { label: 'Hooks', value: 'hooks' }, 
-            { label: 'Pages', value: 'pages' }
+            { label: 'Páginas', value: 'paginas' },
+            { label: 'Componentes', value: 'componentes' },
+            { label: 'Loading Skeleton', value: 'skeleton' }
           ],
         }
