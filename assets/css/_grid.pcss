@@ -7,4 +7,27 @@
   main {
     @apply flex flex-col flex-auto w-full mx-auto px-8 pt-4 pb-16;
   }
+
+  .isdesktop {
+    display: flex !important;
+  }
+  .ismobile {
+    display: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    main {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .isdesktop {
+      display: none !important;
+    }
+    .ismobile {
+      display: flex !important;
+    }
+  }
 }

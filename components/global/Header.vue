@@ -18,8 +18,16 @@
       </ul>
     </div>
 
+    <div class="inc-header__search">
+      <div class="inc-header__search-form">
+        <input type="text" placeholder="o que está buscando?" />
+        <img src="~/assets/imgs/icons/icon-search.svg" alt="Search" />
+      </div>
+    </div>
+
     <nuxt-link class="inc-header__logo" to="/">
-      <img src="~/assets/imgs/logo.png" alt="" srcset="" />
+      <img src="~/assets/imgs/logo.png" alt="Increazy" class="isdesktop" />
+      <img src="~/assets/imgs/logo-icon.png" alt="Increazy" class="ismobile" />
     </nuxt-link>
   </nav>
 </template>
@@ -58,12 +66,15 @@ export default {
 .inc-header__menu-hamburger-icon {
   display: flex;
   width: 40px;
-  height: 24px;
+  height: 38px;
   flex-flow: column;
   justify-content: space-between;
   align-items: flex-start;
   cursor: pointer;
   z-index: 100;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
 }
 .inc-header__menu-hamburger-icon span {
   width: 100%;
@@ -104,7 +115,7 @@ export default {
   border-radius: 0.25rem;
   box-shadow: 3px 3px 15px 0 rgb(0 0 0 / 20%);
   position: absolute;
-  top: 30px;
+  top: 43px;
   left: 0;
   transition: all 0.3s;
   overflow: hidden;
@@ -130,12 +141,58 @@ export default {
   background-color: var(--color-primary-800) !important;
   color: #fff;
 }
+
+.inc-header__search {
+  position: absolute;
+  top: 12px;
+  left: 105px;
+}
+.inc-header__search-form {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.inc-header__search-form input {
+  background: transparent;
+  padding: 7px 30px 7px 10px;
+  height: 38px;
+}
+.inc-header__search-form img {
+  width: 20px;
+  position: absolute;
+  top: 9px;
+  right: 9px;
+}
+
 .inc-header__logo img {
   width: 180px;
 }
 .inc-header__logo {
   background: unset !important;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .inc-header {
+    justify-content: space-between;
+  }
+  .inc-header__menu {
+    position: unset !important;
+  }
+  .inc-header__search {
+    position: unset !important;
+    width: 60%;
+  }
+  .inc-header__search-form input {
+    width: 100%;
+  }
+  .inc-header__logo img {
+    width: auto;
+    height: 40px;
+  }
 }
 
 .scrim-bg {

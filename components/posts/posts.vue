@@ -142,6 +142,31 @@ export default {
 <style lang="postcss" scoped>
 .card-li {
   position: relative;
+  width: calc(33% - 15px);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.card-li:not(:nth-child(3n)) {
+  margin-right: 15px;
+}
+.card-li h3 {
+  font-weight: 600;
+  font-size: 17px;
+}
+.card-li p {
+  font-size: 15px;
+}
+.card-li h6 {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  color: var(--color-primary-100);
+  font-weight: 600;
+  background: var(--color-primary-700);
+  box-shadow: 3px 3px 15px -3px rgb(0 0 0 / 30%);
+  border-radius: 0.125rem;
 }
 
 .inc-docs__tags:not(:last-child) {
@@ -152,9 +177,13 @@ export default {
   overflow: hidden;
   padding: 0;
   transition: all 0.4s;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .inc-docs__tags--active {
-  background: var(--color-gray-300);
+  background: #f5f5f5;
   border-radius: 0.25rem;
 }
 .inc-docs__tags--active .cards {
@@ -196,7 +225,7 @@ export default {
   cursor: pointer;
 }
 .inc-docs__title-text {
-  font-size: 22px;
+  font-size: 17px;
 }
 .inc-docs__title-icon {
   font-size: 25px;
@@ -216,5 +245,21 @@ export default {
 .inc-docs__title-icon span {
   position: absolute;
   top: -5px;
+}
+
+@media (max-width: 1024px) {
+  .card-li {
+    width: calc(50% - 15px);
+  }
+  .card-li:not(:nth-child(3n)) {
+    margin-right: unset;
+  }
+  .card-li:not(:nth-child(2n)) {
+    margin-right: 15px;
+  }
+  .card-li .card {
+    padding-top: 2rem;
+    padding-bottom: 2.2rem;
+  }
 }
 </style>
