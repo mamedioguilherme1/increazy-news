@@ -1,5 +1,6 @@
 ---
 title: Easy excerpt from content
+tags: paginas
 ---
 
 You can add an excerpt easily by writing `<!--MORE-->` in lowercase in the content.
