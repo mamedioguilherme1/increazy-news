@@ -20,3 +20,9 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss" scoped>
+.title {
+  margin-bottom: 50px;
+}
+</style>

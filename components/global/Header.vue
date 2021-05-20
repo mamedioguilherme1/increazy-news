@@ -68,7 +68,7 @@ export default {
 .inc-header__menu-hamburger-icon span {
   width: 100%;
   height: 3px;
-  background: #1c263b;
+  background: var(--color-primary-800);
   border-radius: 20px;
   transition: all 0.3s;
 }
@@ -127,7 +127,7 @@ export default {
 }
 .inc-header__menu-li .btn:hover {
   transition: all 0.3s;
-  background-color: #1c263b !important;
+  background-color: var(--color-primary-800) !important;
   color: #fff;
 }
 .inc-header__logo img {

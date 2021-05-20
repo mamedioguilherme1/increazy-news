@@ -21,8 +21,11 @@
   </ul>
 
   <div v-else-if="posts.length > 0 && postType == 'docs'" class="inc-docs">
-    <div v-for="tag in tags" :key="tag">
-      {{ tag.label }}
+    <div v-for="tag in tags" :key="tag" class="inc-docs__tags" :data-tag="tag.value">
+      <div class="inc-docs__title" @click="toggleTag(tag.value)">
+        <span class="inc-docs__title-text">{{ tag.label }}</span>
+        <div class="inc-docs__title-icon"><span>+</span></div>
+      </div>
 
       <ul class="cards">
         <li v-for="(post, index) in posts" :key="index" class="card-li" v-if="tag.value == post.tags">
@@ -125,6 +128,13 @@ export default {
           error({ statusCode: 404, message: amount > 1 ? 'Posts not found' : 'Post not found' })
         })
     },
+    toggleTag(value) {
+      console.log(value)
+      const tag = document.querySelector(`.inc-docs__tags[data-tag="${value}"]`)
+      if (tag) {
+        tag.classList.toggle('inc-docs__tags--active')
+      }
+    },
   },
 }
 </script>
@@ -133,6 +143,29 @@ export default {
 .card-li {
   position: relative;
 }
+
+.inc-docs__tags:not(:last-child) {
+  margin-bottom: 40px;
+}
+.inc-docs .cards {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: all 0.4s;
+}
+.inc-docs__tags--active {
+  background: var(--color-gray-300);
+  border-radius: 0.25rem;
+}
+.inc-docs__tags--active .cards {
+  height: auto !important;
+  padding: 15px !important;
+  transition: all 0.4s;
+}
+.inc-docs__tags--active .inc-docs__title .inc-docs__title-icon {
+  transform: rotate(135deg);
+}
+
 .inc-docs__tag {
   position: absolute;
   bottom: 0;
@@ -141,11 +174,47 @@ export default {
 }
 .inc-docs__tag small {
   padding: 3px 5px;
-  background: #000;
+  background: var(--color-gray-900);
   color: #fff;
   border-radius: 0.125rem;
 }
 .inc-docs__tag small:not(:last-child) {
   margin-right: 3px;
+}
+
+.inc-docs__title {
+  padding-bottom: 7px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: var(--color-primary-800);
+  color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 15px -2px rgb(0 0 0 / 30%);
+  cursor: pointer;
+}
+.inc-docs__title-text {
+  font-size: 22px;
+}
+.inc-docs__title-icon {
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-primary-600);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  border: 0;
+}
+.inc-docs__title-icon span {
+  position: absolute;
+  top: -5px;
 }
 </style>
