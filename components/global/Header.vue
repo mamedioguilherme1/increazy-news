@@ -20,8 +20,14 @@
 
     <div class="inc-header__search">
       <div class="inc-header__search-form">
-        <input type="text" placeholder="o que está buscando?" />
+        <input type="text" v-model="searchTerm" placeholder="o que está buscando?" />
         <img src="~/assets/imgs/icons/icon-search.svg" alt="Search" />
+      </div>
+
+      <div class="inc-header__search-results" v-show="searchTerm">
+        <ul class="inc-header__search-results-ul">
+          <li class="inc-header__search-results-li" v-for="i in 10" :key="i"><a href="#">Resultado 1</a></li>
+        </ul>
       </div>
     </div>
 
@@ -35,6 +41,11 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      searchTerm: '',
+    }
+  },
   methods: {
     toggleMenu() {
       const menu = document.querySelector('.inc-header__menu-ul')
@@ -165,6 +176,31 @@ export default {
   position: absolute;
   top: 9px;
   right: 9px;
+}
+
+.inc-header__search-results {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 15px -2px rgb(0 0 0 / 20%);
+  padding: 10px;
+}
+.inc-header__search-results-ul {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.inc-header__search-results-li {
+  font-size: 14px;
+  margin: 5px 0;
+}
+.inc-header__search-results-li a:hover {
+  text-decoration: underline;
 }
 
 .inc-header__logo img {
