@@ -76,3 +76,25 @@ collections:
           summary: '{{fields.image}}',
           field: { label: 'Image', name: 'image', widget: 'image' },
         }
+  - name: 'docs'
+    label: 'Docs'
+    folder: 'content/docs'
+    create: true
+    format: 'frontmatter'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    # editor:
+    #   preview: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+      - {
+          label: 'Doc Tag',
+          name: 'tags',
+          widget: 'select',
+          default: 'selecione a tag',
+          options: [
+            { label: 'Hooks', value: 'hooks' }, 
+            { label: 'Pages', value: 'pages' }
+          ],
+        }

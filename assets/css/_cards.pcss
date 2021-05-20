@@ -2,7 +2,9 @@
   .cards {
     @apply w-full py-4 rounded-lg text-left;
     & .card {
-      @apply flex flex-col justify-between items-start max-w-5xl mx-auto px-4 py-4 rounded border border-solid border-primary;
+      box-shadow: 2px 2px 15px -1px rgba(0,0,0,0.2);
+      background: #fff;
+      @apply flex flex-col justify-between items-start max-w-5xl mx-auto px-4 py-4 rounded;
 
       & .cover-image {
         @apply mb-0 w-full rounded-sm;
@@ -41,8 +43,13 @@
         @apply border-primary-400;
 
         &.card--clickable {
+          transition: all .3s;
           &:hover {
-            @apply border-primary bg-primary-200 text-primary-900;
+            @apply text-primary-900;
+            padding-left: 30px;
+            padding-right: 30px;
+            transition: all .3s;
+            background: #fff !important;
             & .card-title {
               @apply text-primary-900;
             }
