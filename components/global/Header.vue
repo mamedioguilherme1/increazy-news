@@ -216,11 +216,15 @@ export default {
     justify-content: space-between;
   }
   .inc-header__menu {
-    position: unset !important;
+    position: relative !important;
+    top: 0;
+    left: 0;
   }
   .inc-header__search {
-    position: unset !important;
+    position: relative !important;
     width: 60%;
+    top: 0;
+    left: 0;
   }
   .inc-header__search-form input {
     width: 100%;
