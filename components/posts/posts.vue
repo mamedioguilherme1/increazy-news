@@ -249,16 +249,16 @@ export default {
 
 @media (max-width: 1024px) {
   .card-li {
-    width: calc(50% - 15px);
+    width: 100%;
   }
   .card-li:not(:nth-child(3n)) {
     margin-right: unset;
   }
-  .card-li:not(:nth-child(2n)) {
-    margin-right: 15px;
+  .card-li:last-child {
+    margin-bottom: 0;
   }
   .card-li .card {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     padding-bottom: 2.2rem;
   }
 }

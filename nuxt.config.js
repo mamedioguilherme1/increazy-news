@@ -13,6 +13,9 @@ export default {
     fallback: true
   },
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
+  server: {
+    host: '0'
+  },
   env: {
     url:
       process.env.NODE_ENV === 'production'
@@ -102,7 +105,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   },
   /*
    ** Custom additions configuration
@@ -123,7 +126,7 @@ export default {
     whitelistPatternsChildren: [/^nuxt-content/, /code/, /pre/, /token/, /^vue-content-placeholders/]
   },
   colorMode: {
-    preference: 'system', // default value of $colorMode.preference
+    preference: 'light', // default value of $colorMode.preference (system)
     fallback: COLOR_MODE_FALLBACK, // fallback value if not system preference found
     componentName: 'ColorScheme',
     cookie: {
